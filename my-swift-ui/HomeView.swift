@@ -25,8 +25,8 @@ struct HomeView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 30){
-                    ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
-                        SectionView()
+                    ForEach(sectionData) { item in
+                        SectionView(section: item)
                     }
                 }.padding(30)
                 .padding(.bottom, 30)
@@ -45,29 +45,54 @@ struct HomeView_Previews: PreviewProvider {
 }
 
 struct SectionView: View {
+    
+    var section: Section
+    
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                Text("Prototype designs in SwiftUI")
+                Text(section.title)
                     .font(.system(size: 24, weight: .bold))
                     .frame(width: 160,alignment: .leading)
                     .foregroundColor(Color.white)
-                Image("Logo1")
+                Image(section.logo)
             }
             
-            Text("18 sections".uppercased())
+            Text(section.text.uppercased())
                 .frame(maxWidth: .infinity,alignment: .leading)
                 .padding(.horizontal)
             
-            Image("Card1")
+            section.image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 210)
         }.padding(.top, 20)
             .padding(.horizontal, 20)
             .frame(width: 275, height: 275)
-            .background(Color("card1"))
+            .background(section.color)
             .cornerRadius(30)
-            .shadow(color: Color("card1").opacity(0.3), radius: 20, x: 0, y: 20)
+            .shadow(color: section.color.opacity(0.3), radius: 20, x: 0, y: 20)
     }
 }
+
+
+struct Section: Identifiable {
+    
+    var id = UUID()
+    var title: String
+    var text: String
+    var logo: String
+    var image: Image
+    var color: Color
+    
+}
+
+
+let sectionData = [
+    Section(title: "Prototype designs in SwiftUI", text: "18 Sections", logo: "Logo1", image: Image(uiImage: #imageLiteral(resourceName: "Card4")), color: Color(#colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1))),
+    Section(title: "Prototype designs in Reactive Native", text: "10 Sections", logo: "Logo2", image: Image(uiImage: #imageLiteral(resourceName: "Card1")), color: Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))),
+    Section(title: "Prototype designs in React", text: "7 Sections", logo: "Logo3", image: Image(uiImage: #imageLiteral(resourceName: "Card5")), color: Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))),
+    Section(title: "Prototype designs in Kotlin", text: "5 Sections", logo: "Logo1", image: Image(uiImage: #imageLiteral(resourceName: "Card6")), color: Color(#colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1))),
+]
+
+
