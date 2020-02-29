@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2D51533240AEE3D00563849 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D51532240AEE3D00563849 /* ContentView.swift */; };
+		B2D5153D240AEECE00563849 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5153C240AEECE00563849 /* MenuView.swift */; };
+		B2D5153F240AEEF800563849 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5153E240AEEF800563849 /* Home.swift */; };
 		E518FD2D23F1EFF20025B216 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518FD2C23F1EFF20025B216 /* AppDelegate.swift */; };
 		E518FD2F23F1EFF20025B216 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518FD2E23F1EFF20025B216 /* SceneDelegate.swift */; };
-		E518FD3123F1EFF20025B216 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518FD3023F1EFF20025B216 /* ContentView.swift */; };
 		E518FD3323F1EFF80025B216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E518FD3223F1EFF80025B216 /* Assets.xcassets */; };
 		E518FD3623F1EFF80025B216 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E518FD3523F1EFF80025B216 /* Preview Assets.xcassets */; };
 		E518FD3923F1EFF80025B216 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E518FD3723F1EFF80025B216 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B2D51532240AEE3D00563849 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B2D5153C240AEECE00563849 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		B2D5153E240AEEF800563849 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		E518FD2923F1EFF20025B216 /* my-swift-ui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "my-swift-ui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E518FD2C23F1EFF20025B216 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E518FD2E23F1EFF20025B216 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E518FD3023F1EFF20025B216 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E518FD3223F1EFF80025B216 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E518FD3523F1EFF80025B216 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E518FD3823F1EFF80025B216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +62,9 @@
 			children = (
 				E518FD2C23F1EFF20025B216 /* AppDelegate.swift */,
 				E518FD2E23F1EFF20025B216 /* SceneDelegate.swift */,
-				E518FD3023F1EFF20025B216 /* ContentView.swift */,
+				B2D51532240AEE3D00563849 /* ContentView.swift */,
+				B2D5153C240AEECE00563849 /* MenuView.swift */,
+				B2D5153E240AEEF800563849 /* Home.swift */,
 				E518FD3223F1EFF80025B216 /* Assets.xcassets */,
 				E518FD3723F1EFF80025B216 /* LaunchScreen.storyboard */,
 				E518FD3A23F1EFF80025B216 /* Info.plist */,
@@ -147,8 +153,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E518FD2D23F1EFF20025B216 /* AppDelegate.swift in Sources */,
+				B2D5153D240AEECE00563849 /* MenuView.swift in Sources */,
+				B2D5153F240AEEF800563849 /* Home.swift in Sources */,
 				E518FD2F23F1EFF20025B216 /* SceneDelegate.swift in Sources */,
-				E518FD3123F1EFF20025B216 /* ContentView.swift in Sources */,
+				B2D51533240AEE3D00563849 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +296,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"my-swift-ui/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "my-swift-ui/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,6 +316,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"my-swift-ui/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "my-swift-ui/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
