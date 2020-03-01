@@ -14,6 +14,8 @@
 		B2D5153F240AEEF800563849 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5153E240AEEF800563849 /* Home.swift */; };
 		B2DD736A240C462800D5FDB1 /* UpdateDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DD7369240C462800D5FDB1 /* UpdateDetail.swift */; };
 		B2DD736C240C4A5500D5FDB1 /* UpdateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DD736B240C4A5500D5FDB1 /* UpdateStore.swift */; };
+		B2DD736E240C5D1A00D5FDB1 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DD736D240C5D1A00D5FDB1 /* Tabbar.swift */; };
+		B2DD7370240C62D400D5FDB1 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DD736F240C62D400D5FDB1 /* RingView.swift */; };
 		E518FD2D23F1EFF20025B216 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518FD2C23F1EFF20025B216 /* AppDelegate.swift */; };
 		E518FD2F23F1EFF20025B216 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518FD2E23F1EFF20025B216 /* SceneDelegate.swift */; };
 		E518FD3323F1EFF80025B216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E518FD3223F1EFF80025B216 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 		B2D5153E240AEEF800563849 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		B2DD7369240C462800D5FDB1 /* UpdateDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetail.swift; sourceTree = "<group>"; };
 		B2DD736B240C4A5500D5FDB1 /* UpdateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStore.swift; sourceTree = "<group>"; };
+		B2DD736D240C5D1A00D5FDB1 /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
+		B2DD736F240C62D400D5FDB1 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		E518FD2923F1EFF20025B216 /* my-swift-ui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "my-swift-ui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E518FD2C23F1EFF20025B216 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E518FD2E23F1EFF20025B216 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,12 +75,14 @@
 				E518FD2C23F1EFF20025B216 /* AppDelegate.swift */,
 				E518FD2E23F1EFF20025B216 /* SceneDelegate.swift */,
 				B2D51532240AEE3D00563849 /* ContentView.swift */,
+				B2DD736F240C62D400D5FDB1 /* RingView.swift */,
 				B2D5153C240AEECE00563849 /* MenuView.swift */,
 				B2D5153E240AEEF800563849 /* Home.swift */,
 				B29C2B02240B0E9600740E12 /* HomeView.swift */,
 				B29C2B04240B23B400740E12 /* UpdateList.swift */,
 				B2DD7369240C462800D5FDB1 /* UpdateDetail.swift */,
 				B2DD736B240C4A5500D5FDB1 /* UpdateStore.swift */,
+				B2DD736D240C5D1A00D5FDB1 /* Tabbar.swift */,
 				E518FD3223F1EFF80025B216 /* Assets.xcassets */,
 				E518FD3723F1EFF80025B216 /* LaunchScreen.storyboard */,
 				E518FD3A23F1EFF80025B216 /* Info.plist */,
@@ -165,9 +171,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E518FD2D23F1EFF20025B216 /* AppDelegate.swift in Sources */,
+				B2DD736E240C5D1A00D5FDB1 /* Tabbar.swift in Sources */,
 				B2DD736C240C4A5500D5FDB1 /* UpdateStore.swift in Sources */,
 				B29C2B05240B23B400740E12 /* UpdateList.swift in Sources */,
 				B2D5153D240AEECE00563849 /* MenuView.swift in Sources */,
+				B2DD7370240C62D400D5FDB1 /* RingView.swift in Sources */,
 				B2DD736A240C462800D5FDB1 /* UpdateDetail.swift in Sources */,
 				B2D5153F240AEEF800563849 /* Home.swift in Sources */,
 				B29C2B03240B0E9600740E12 /* HomeView.swift in Sources */,
