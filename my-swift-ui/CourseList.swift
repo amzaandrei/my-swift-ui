@@ -11,6 +11,8 @@ import SwiftUI
 struct CourseList: View {
     
     @State var courses = coursesData
+    @State var active = false
+    @State var activeIndex = -1
     
     var body: some View {
         ScrollView{
@@ -21,19 +23,32 @@ struct CourseList: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 30)
                     .padding(.top, 30)
+                    .blur(radius: active ? 20 : 0)
                 
                 ForEach(courses.indices, id: \.self) { index in
                     GeometryReader { geometry in
-                        CourseView(show: self.$courses[index].show, course: self.courses[index])
+                        CourseView(
+                            show: self.$courses[index].show,
+                            course: self.courses[index],
+                            active: self.$active,
+                            index: index,
+                            activeIndex: self.$activeIndex
+                        )
                             .offset(y: self.courses[index].show ? -geometry.frame(in: .global).minY : 0)
+                            .opacity(self.activeIndex != index && self.active ? 0 : 1)
+                            .scaleEffect(self.activeIndex != index && self.active ? 0.5 : 1)
+                            .offset(x: self.activeIndex != index && self.active ? screen.width : 0)
                     }
                     .frame(height: self.courses[index].show ? screen.height :  280)
                     .frame(maxWidth: self.courses[index].show ? .infinity : screen.width - 60)
+//                    .zIndex(self.courses[index].show ? 1 : 0)
                 }
             }
             .frame(width: screen.width)
             .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
         }
+        .statusBar(hidden: active ? true : false)
+        .animation(.linear)
     }
 }
 
@@ -47,6 +62,10 @@ struct CourseView: View {
     
     @Binding var show: Bool
     var course: Course
+    @Binding var active: Bool
+    var index: Int
+    @Binding var activeIndex: Int
+    @State var activeView = CGSize.zero
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -108,11 +127,36 @@ struct CourseView: View {
             .background(Color(course.color))
             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             .shadow(color: Color(course.color).opacity(0.3), radius: 20, x: 0, y: 20)
+            .gesture(
+                show ?
+                DragGesture().onChanged { value in
+                    guard value.translation.height < 300 else { return }
+                    guard value.translation.height > 0 else { return }
+                    
+                    self.activeView = value.translation
+                }.onEnded { value in
+                    if self.activeView.height > 50 {
+                        self.show = false
+                        self.active = false
+                        self.activeIndex = -1
+                    }
+                    self.activeView = .zero
+                }
+                : nil
+            )
             .onTapGesture {
                 self.show.toggle()
+                self.active.toggle()
+                if self.show{
+                    self.activeIndex = self.index
+                }else{
+                    self.activeIndex = -1
+                }
             }
-        }.animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
-                    .edgesIgnoringSafeArea(.all)
+        }
+        .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+        .scaleEffect(1 - self.activeView.height / 1000)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
