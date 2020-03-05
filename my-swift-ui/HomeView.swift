@@ -76,6 +76,8 @@ struct HomeView: View {
                 SectionView(section: sectionData[2], width: screen.width - 60, height: 275)
                 .offset(y: -60)
                 
+//                CourseList(courses: coursesData, active: false, activeIndex: -1)
+                
                 Spacer()
             }
         }

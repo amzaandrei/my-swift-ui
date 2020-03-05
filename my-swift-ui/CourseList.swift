@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CourseList: View {
     
-    @State var courses = coursesData
+    @ObservedObject var store = CourseStore()
     @State var active = false
     @State var activeIndex = -1
     
@@ -24,24 +24,24 @@ struct CourseList: View {
                     .padding(.leading, 30)
                     .padding(.top, 30)
                     .blur(radius: active ? 20 : 0)
+                    
                 
-                ForEach(courses.indices, id: \.self) { index in
+                ForEach(store.courses.indices, id: \.self) { index in
                     GeometryReader { geometry in
                         CourseView(
-                            show: self.$courses[index].show,
-                            course: self.courses[index],
+                            show: self.$store.courses[index].show,
+                            course: self.store.courses[index],
                             active: self.$active,
                             index: index,
                             activeIndex: self.$activeIndex
                         )
-                            .offset(y: self.courses[index].show ? -geometry.frame(in: .global).minY : 0)
+                            .offset(y: self.store.courses[index].show ? -geometry.frame(in: .global).minY : 0)
                             .opacity(self.activeIndex != index && self.active ? 0 : 1)
                             .scaleEffect(self.activeIndex != index && self.active ? 0.5 : 1)
                             .offset(x: self.activeIndex != index && self.active ? screen.width : 0)
                     }
-                    .frame(height: self.courses[index].show ? screen.height :  280)
-                    .frame(maxWidth: self.courses[index].show ? .infinity : screen.width - 60)
-//                    .zIndex(self.courses[index].show ? 1 : 0)
+                    .frame(height: self.store.courses[index].show ? screen.height :  280)
+                    .frame(maxWidth: self.store.courses[index].show ? .infinity : screen.width - 60)
                 }
             }
             .frame(width: screen.width)
@@ -152,6 +152,12 @@ struct CourseView: View {
                 }else{
                     self.activeIndex = -1
                 }
+            }
+            
+            if show {
+//                CourseDetail(course: course, active: $show, activeIndex: $activeIndex, show: $active)
+//                    .background(Color.white)
+//                    .animation(nil)
             }
         }
         .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
