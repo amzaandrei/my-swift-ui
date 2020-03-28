@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B20B0695242F77BF007A58FB /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20B0694242F77BF007A58FB /* Buttons.swift */; };
 		B239E5AD24110FA900517EFA /* Contentful in Frameworks */ = {isa = PBXBuildFile; productRef = B239E5AC24110FA900517EFA /* Contentful */; };
 		B239E5AF2411124D00517EFA /* CourseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239E5AE2411124D00517EFA /* CourseStore.swift */; };
 		B239E5B12411294400517EFA /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B239E5B02411294400517EFA /* BlurView.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B20B0694242F77BF007A58FB /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		B239E5AE2411124D00517EFA /* CourseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseStore.swift; sourceTree = "<group>"; };
 		B239E5B02411294400517EFA /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		B289A5112410333000C574BB /* CourseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetail.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				B2DD736B240C4A5500D5FDB1 /* UpdateStore.swift */,
 				B2DD736D240C5D1A00D5FDB1 /* Tabbar.swift */,
 				B239E5B02411294400517EFA /* BlurView.swift */,
+				B20B0694242F77BF007A58FB /* Buttons.swift */,
 				B289A5132410508F00C574BB /* Data.swift */,
 				B289A515241051E800C574BB /* PostsList.swift */,
 				B289A5172410554500C574BB /* DataCombine.swift */,
@@ -221,6 +224,7 @@
 				B29C2B03240B0E9600740E12 /* HomeView.swift in Sources */,
 				E518FD2F23F1EFF20025B216 /* SceneDelegate.swift in Sources */,
 				B289A5122410333000C574BB /* CourseDetail.swift in Sources */,
+				B20B0695242F77BF007A58FB /* Buttons.swift in Sources */,
 				B2D51533240AEE3D00563849 /* ContentView.swift in Sources */,
 				B239E5B12411294400517EFA /* BlurView.swift in Sources */,
 				B2FC839D240F01E300495A0A /* CourseList.swift in Sources */,
