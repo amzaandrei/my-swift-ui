@@ -13,6 +13,7 @@ struct Home: View {
     @State var showProfile = false
     @State var viewState = CGSize.zero
     @State var showContent = false
+    @EnvironmentObject var user: UserStore
     
     var body: some View {
         ZStack {
@@ -53,6 +54,30 @@ struct Home: View {
                     self.viewState = .zero
                 })
             )
+            
+            ZStack{
+                if user.showLogin{
+                    LoginView()
+                    
+                    HStack {
+                        Spacer()
+                        VStack {
+                            Image(systemName: "xmark")
+                                .frame(width: 36, height: 36)
+                                .foregroundColor(.white)
+                                .background(Color.black)
+                                .clipShape(Circle())
+                            Spacer()
+                        }
+                        .offset(x: -16, y: 16)
+                    }
+                    .padding()
+                    .onTapGesture {
+                        self.user.showLogin = false
+                    }
+                }
+            }
+            
             if showContent{
                 BlurView(style: .systemMaterial).edgesIgnoringSafeArea(.all)
                 ContentView()
@@ -65,8 +90,10 @@ struct Home: View {
                             .background(Color.black)
                             .clipShape(Circle())
                         Spacer()
-                    }.offset(x: -16, y: 16)
-                }.transition(.move(edge: .top))
+                    }
+                    .offset(x: -16, y: 16)
+                }
+                .transition(.move(edge: .top))
                 .animation(.spring(response: 0.6, dampingFraction: 0.8, blendDuration: 0))
                 .onTapGesture {
                         self.showContent = false
@@ -79,6 +106,7 @@ struct Home: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home().environment(\.colorScheme, .dark)
+        .environmentObject(UserStore())
 //            .environment(\.sizeCategory, .extraLarge)
     }
 }
@@ -86,14 +114,30 @@ struct Home_Previews: PreviewProvider {
 struct AvatarView: View {
     
     @Binding var showProfile: Bool
+    @EnvironmentObject var user: UserStore
     
     var body: some View {
-        Button(action: { self.showProfile.toggle() }) {
-            Image("Avatar")
-                .renderingMode(.original)
-                .resizable()
-                .frame(width: 36, height: 36)
-                .clipShape(Circle())
+        VStack {
+            if user.isLogged {
+                Button(action: { self.showProfile.toggle() }) {
+                Image("Avatar")
+                    .renderingMode(.original)
+                    .resizable()
+                    .frame(width: 36, height: 36)
+                    .clipShape(Circle())
+                }
+            } else {
+                Button(action: { self.user.showLogin.toggle() }) {
+                Image(systemName: "person")
+                    .foregroundColor(.primary)
+                    .font(.system(size: 16, weight: .medium))
+                    .frame(width: 36, height: 36)
+                    .background(Color("background3"))
+                    .cornerRadius(18)
+                    .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                }
+            }
         }
     }
 }
